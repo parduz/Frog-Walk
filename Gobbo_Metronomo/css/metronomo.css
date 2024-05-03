@@ -1,0 +1,187 @@
+body  {
+	overflow: hidden;
+}
+
+.container
+{
+	display: flex;
+	overflow: hidden;
+}
+.half, #JSMetronome
+{
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+
+	display: flex;
+	flex-direction: column;
+}
+.song-name {
+	display: flex;
+	justify-content: space-between;
+	font-weight: bold;
+	--title-text-size:   calc( var(--normal-text-size) * var(--title-size-mul     ) );
+	font-size:                 var(--title-text-size);
+	line-height:         calc( var(--title-text-size) * 1.5);
+	padding-top:               var(--section-margin);
+	padding-right:       calc( var(--section-margin) * 2);
+	padding-left:        calc( var(--section-margin) * 2);
+	letter-spacing:      calc( var(--normal-text-size) * -0.02);
+	border-radius:       calc( var(--section-margin) * 2.5);
+	margin:              calc( var(--section-margin) * 1);
+	background-color: #fff;
+	color: #000A;
+	border: 2px solid #000;
+	user-select: none;
+}
+
+.song-name span {
+	font-weight:      normal;
+	font-size:        var(--normal-text-size);
+	background-color: #0000;
+	color:            #080;
+}
+
+
+#ListaCanzoni {
+	overflow-y: auto;
+	height: 99vh;
+	scrollbar-width: none;
+}
+#ListaCanzoni::-webkit-scrollbar {
+	display: none;
+}
+
+#JSMetronome {
+	font-size:   50vh;
+	text-align: center;
+	background-color: transparent;
+}
+
+
+.SimpleMetronome {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #004;
+	color: var(--title-fgcolor);
+	background-color: transparent;
+	position: relative;
+}
+.title {
+	display: block;
+	text-align: center;
+}
+
+:root {
+	--drums-size: 30vh;
+
+	--drum-off:     #DB9;
+	--drum-on:      #FFF;
+	--drums-color:  #E31;
+	--cymbal-color: #F90;
+	--cymbal-on:    #FF8;
+}
+body{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+}
+.drums,.drums *{
+	position: absolute;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.drums{
+	aspect-ratio: 1;
+	height: 100%;
+	overflow: visible;
+	background-color: transparent;
+}
+.bassdrum{
+	top: 40%;
+	left: 15%;
+	width: 60%;
+	height: 60%;
+	border-radius: 50%;
+	border: 0.3vw solid var(--drums-color);
+	background: #333;
+}
+.tom{
+	border-radius: 50%;
+	border: 0.2vw solid var(--drums-color);
+	background: #448;
+	overflow: visible;
+}
+.tom-high{
+	top: 20%;
+	left: 15%;
+	width: 30%;
+	height: 15%;
+}
+.tom-mid{
+	top: 20%;
+	left: 45%;
+	width: 35%;
+	height: 18%;
+}
+.tom-low{
+	top: 55%;
+	left: 50%;
+	width: 40%;
+	height: 20%;
+}
+.snare{
+	top: 55%;
+	left: 5%;
+	width: 30%;
+	height: 15%;
+	border-radius: 50%;
+	border: 0.3vw solid var(--drums-color);
+	background: #363;
+	overflow: visible;
+}
+.ride{
+	top: 30%;
+	left: 60%;
+	width: 40%;
+	height: 20%;
+}
+.hi-hat{
+	top: 40%;
+	left: 0%;
+	width: 25%;
+	height: 10%;
+}
+.cymbal{
+	border: none;
+	border-radius: 50%;
+	border: 0.3vw solid var(--drums-color);
+	border-width: 0.1vw 0.2vw 0.3vw 0.2vw;
+	background: var(--cymbal-color);
+}
+
+.b1 {background-color: var(--firstbeat_bg) !important;}
+.b2 {background-color: var(--otherbeats_bg) !important;}
+
+.DrumOn {
+	background: var(--drum-on);
+	border-width: 0.1vw;
+}
+.cymbal.DrumOn {
+	background: #FFA;
+	border-width: 0.1vw;
+}
+.snare.DrumOn {
+	background: #4F4;
+}
+.bassdrum.DrumOn {
+	background: #44F;
+}
+

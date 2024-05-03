@@ -1,0 +1,84 @@
+.debugclass-1 > div > .debug + .section_block {
+	margin-top: 0;
+}
+
+
+.debugclass-1 > .debug,
+.debugclass-1 > div > .debug    {
+	background-color: #8224;
+	color: #999;
+	font-size: .5em;
+	visibility: visible;
+	display: block;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+.rendering-target.debugclass-1 {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+  border: solid 1px magenta;
+}
+
+.debugclass-1 > div > p.chord {
+	background-color: #00A;
+}
+
+[class^="debugclass-1"] div {
+	border: 1px solid magenta;
+}
+.debugclass-1 > * > span     {border: solid 1px #80F; }
+
+
+.debugclass-2 > div > .line        {background-color: #040;}
+.debugclass-2 > div > .title       {background-color: #888; }
+.debugclass-2 > div > .subtitle    {background-color: #800; }
+.debugclass-2 > div > .comment     {background-color: #444; }
+.debugclass-2 > div > * > p.verse      {background-color: #060; }
+.debugclass-2 > div > span > p.chorus     {background-color: #044; }
+.debugclass-2 > div > span > p.intro      {background-color: #440; }
+.debugclass-2 > div > span > p.bridge     {background-color: #404; }
+.debugclass-2 > div > span > p.solo       {background-color: #400; }
+.debugclass-2 > div > span > p.ending     {background-color: #804; }
+.debugclass-2 > div > span > p.note       {background-color: #408; }
+.debugclass-2 > div > .lyric_block {background-color: #022; }
+.debugclass-1 > div > .line        {border: solid 1px #0A0; }
+.debugclass-1 > div > .title       {border: solid 1px #888; }
+.debugclass-1 > div > .subtitle    {border: solid 1px #800; }
+.debugclass-1 > div > .comment     {border: solid 1px #444; }
+.debugclass-1 > div > span > p.verse      {border: solid 1px #040; }
+.debugclass-1 > div > span > p.chorus     {border: solid 1px #044; }
+.debugclass-1 > div > span > p.intro      {border: solid 1px #440; }
+.debugclass-1 > div > span > p.bridge     {border: solid 1px #404; }
+.debugclass-1 > div > span > p.solo       {border: solid 1px #400; }
+.debugclass-1 > div > span > p.ending     {border: solid 1px #804; }
+.debugclass-1 > div > span > p.note       {border: solid 1px #408; }
+.debugclass-1 > div > .lyric_block {border: solid 1px #022; }
+
+
+.unknown  {background-color: magenta; }
+
+.debugclass-3 + .textmeasure + #zoom {
+	visibility: visible;
+	display: block;
+
+	font-size: 2vh;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #000A;
+}
+.debugclass-3 + .textmeasure {
+	visibility: visible;
+	display: block;
+
+	position: absolute;
+	top:  150px;
+	left:   0px;
+	background-color: #008A;
+	color: white;
+}
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>METRONOMO</title>
+
+		<script src="./canzoni-metronomo.js"></script>
+		<script src="./js/metronomo.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/gobbo.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/sectionscolors.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/metronomo.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/debugstyles.css"/>
+	</head>
+	<body>
+		<!-- div> <p> Testo Normale <i>Testo Italico</i> <b>Testo Grassetto</b> <i><b>Testo GrassettoItalico</b></i> </p> </div --> 
+		<!-- a href="https://www.quirksmode.org/dom/classchange.html">TEST BENCHMARK</a -->
+		<div class="rendering-target " id="song">
+			<div class="container">
+				<div class="half" id="ListaCanzoni">
+					<p class="song-name" id="1">Titolo 1</p>
+					<p class="song-name" id="2">Titolo 2</p>
+					<p class="song-name" id="3">Titolo 3</p>
+					<p class="song-name" id="4">Titolo 4</p>
+					<p class="song-name" id="5">Titolo 5</p>
+					<p class="song-name" id="6">Titolo 6</p>
+					<p class="song-name" id="7">Titolo 7</p>
+					<p class="song-name" id="8">Titolo 8</p>
+					<p class="song-name" id="9">Titolo 9</p>
+					<p class="song-name" id="10">Titolo 10</p>
+					<p class="song-name" id="11">Titolo 11</p>
+					<p class="song-name" id="12">Titolo 12</p>
+					<p class="song-name" id="13">Titolo 13</p>
+					<p class="song-name" id="14">Titolo 14</p>
+					<p class="song-name" id="15">Titolo 15</p>
+					<p class="song-name" id="16">Titolo 16</p>
+					<p class="song-name" id="17">Titolo 17</p>
+					<p class="song-name" id="18">Titolo 18</p>
+					<p class="song-name" id="19">Titolo 19</p>
+				</div> <!-- Lista Canzoni -->
+				<div class="half">
+					<div class="section_block title" id="title">
+						<h1 class="title" id="Titolo">
+							Titolo Canzone
+						</h1>
+					</div>
+					<div class="dummy" id="JSMetronome">M</div>
+					<div class="SimpleMetronome half" id="SimpleMetronome">
+						<div class="drums">
+							<div id="dr_0" class="bassdrum"></div>
+							<div id="dr_1" class="snare"></div>
+							<div id="dr_2" class="cymbal hi-hat"></div>
+							<div id="dr_3" class="tom tom-high"></div>
+							<div id="dr_4" class="tom tom-mid"></div>
+							<div id="dr_5" class="tom tom-low"></div>
+							<div id="dr_6" class="cymbal ride"></div>
+						</div>
+					</div>
+					<p class="song-name" id="ANIM">CambiaAnimazione</p>
+				</div>
+			</div> <!-- Container -->
+		</div>
+
+
+		<script type="text/javascript">
+			const canzoniDiv = document.getElementById('ListaCanzoni');
+			const songDiv    = document.getElementById('song');
+			const Metronomo     = document.getElementById('JSMetronome');
+			const TitoloCanzone = document.getElementById('Titolo');
+			const DrumBack      = document.getElementById('SimpleMetronome');
+			const Drums = Array.from(
+			  { length: 4 },
+			  (_, i) => document.getElementById('dr_' + i)
+			);
+			//console.log(Drums);
+		</script>
+
+	</body>
+</html>

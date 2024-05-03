@@ -1,0 +1,273 @@
+:root {
+	--normal-text-size: 3vh;
+	--chord-size-mul:       0.8;
+	--title-size-mul:       1.5;
+	--metronome-size-mul:   1.4;
+	--section-size-mul:     1.1;
+
+	--max-render-w:          99vw;
+	--max-render-h:          99vh;
+	--padding-margin-w:      0px;
+	--padding-margin-h:      0px;
+
+	--bpm:                   50;
+	--beats:                  3;
+	--firstbeat_bg:         #FF0;
+	--otherbeats_bg:        #0B4;
+	--beat-duration:        0.25s;
+
+}
+
+@font-face {
+	font-family: GobboFont;
+	src: url("../fonts/LiberationMono-BoldItalic.ttf");
+	font-weight: bold;
+	font-style: italic, oblique;
+}
+@font-face {
+	font-family: GobboFont;
+	src: url("../fonts/LiberationMono-Italic.ttf");
+	font-weight: normal;
+	font-style: italic, oblique;
+}
+@font-face {
+	font-family: GobboFont;
+	src: url("../fonts/LiberationMono-Bold.ttf");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: GobboFont;
+	src: url("../fonts/LiberationMono-Regular.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin:  0;
+	padding: 0;
+	--section-margin:        calc( var(--normal-text-size) * 0.2 );
+	--renderer-w:            calc( var(--max-render-w) - var(--padding-margin-w)*2 );
+	--renderer-h:            calc( var(--max-render-h) - var(--padding-margin-h)*2 );
+}
+
+body {
+	background-color: black;
+	color:            magenta;
+	font-family: GobboFont, "Times New Roman", monospace;
+}
+
+h1 {
+	--title-text-size:   calc( var(--normal-text-size) * var(--title-size-mul     ) );
+	font-size:           var(--title-text-size);
+}
+
+.rendering-target, .paginator {
+	white-space:      nowrap;
+	max-width:        var(--max-render-w);
+	max-height:       var(--max-render-h);
+}
+
+.paginator {
+	overflow:         hidden;
+	color:            purple;
+	background-color: magenta;
+	padding:          var(--padding-margin-h) var(--padding-margin-w);
+
+}
+
+.rendering-target {
+	position: relative;
+	width:            var(--renderer-w);
+	height:           var(--renderer-h);
+	transition: left 0.3s ease 0s;
+
+	/* overflow:         hidden;  /* facciamo vedere le colonne come pagine, e le nascondiamo con il .paginator */
+	font-size:        var(--normal-text-size);
+	/*column-count: 1;*/
+	column-count: auto;
+	column-width: var(--renderer-w);
+	column-gap:   calc(var(--padding-margin-w)*2);
+	/* border: 1px solid blue;          */
+	/* column-rule:  solid 1px azure;   */
+}
+.rendering-target:empty:before {
+	content: "<sto elaborando la canzone...>";
+	font-style: italic;
+	text-align: center;
+	font-size: 1.5rem;
+	display: block;
+	padding: 2vw 0;
+	color: #ccc;
+}
+.section_block {
+	width: 100%;
+	margin-top:     0px;
+	margin-bottom:  var(--section-margin);
+	--section-text-size:     calc( var(--normal-text-size) * var(--section-size-mul   ) );
+	font-size:      var(--section-text-size);
+	font-weight:    bold;
+}
+.section_block h4 {
+	font-size: var(--section-text-size);
+}
+.section_block em.comment {
+	display:        block;
+	margin-top:     var(--section-margin);
+	font-weight:    normal;
+}
+.lyric_block {
+	width: 100%;
+	display: inline-flex;	/* evita di dividire il blocco tra le colonne */
+	flex-direction: column;
+	margin-bottom: var(--section-margin);
+}
+.lyric_block + .lyric_block {
+	margin-bottom: 0;
+}
+
+.line {
+	-webkit-column-break-inside: avoid; /* Chrome, Safari */
+	page-break-inside: avoid; /* Theoretically FF 20+ */
+	break-inside: avoid-column; /* IE 11 */
+	display: table; /* Actually FF 20+ */
+	white-space: pre;
+}
+.chord {
+	font-weight:    bold;
+	margin-bottom:  calc(var(--section-margin) *-1) ;
+}
+.chorus {
+	font-weight:    bold;
+	margin-top:     var(--section-margin);
+	margin-bottom:  var(--section-margin);
+}
+
+.acapo {
+	text-align: right;
+}
+
+.title {
+	display:         flex;
+	flex-direction:  row;
+	justify-content: space-between;
+	flex-wrap:       wrap;
+	align-content:   flex-end;
+	align-items:     flex-end;
+	height: calc(var(--title-text-size)*1.1);
+}
+
+.line.chordspan {
+	--chord-text-size:       calc( var(--normal-text-size) * var(--chord-size-mul ) );
+	min-height:              calc( var(--normal-text-size) + var(--chord-text-size) );
+	display:                 flex;
+	flex-direction:          column;
+	align-items:             stretch;
+	justify-content:         flex-end;
+	margin-bottom:           var(--section-margin);
+}
+span.chord {
+	position:                relative;    /* allows to raise the chord over the lyrics */
+	top:                     calc(var(--normal-text-size) * -1);        /* How much raising the chord over the lyrics */
+	display:                 inline-flex; /* This allows the widht property working */
+	width:                   0;           /* This makes the span containing the chord not taking any space between the lyrics words */
+	overflow:                visible;     /* this allows to see the Chord despite the span having 0 width */
+	font-size:               var(--chord-text-size);
+}
+span.lastchord {
+	display:    inline;   /* This makes the span taking space to show its content */
+}
+
+.intro > span.chord,
+.solo  > span.chord {
+	display:    inline;   /* This makes the span taking space to show its content */
+	position:   static;   /* This makes the span stay aligned with the text */
+}
+
+.unknown {
+	animation: blink 2s infinite;
+}
+
+@keyframes blink {
+	0%   {background-color: var(--title-bgcolor);}
+	50%  {background-color: var(--lyric_block-bgcolor);}
+	100% {background-color: var(--title-bgcolor);}
+}
+
+#JSMetronome {
+	display: table;
+	color: var(--title-fgcolor);
+
+	--metronome-text-size:   calc( var(--normal-text-size) * var(--metronome-size-mul ) );
+	font-size:   var(--metronome-text-size);
+	font-weight: bold;
+
+	position: relative;
+	background-color: transparent;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+
+	container-type: size;
+}
+
+#JSMetronome.animated {
+	animation: b2 var(--beat-duration) linear infinite;
+	will-change: opacity;
+}
+
+#JSMetronome > span {
+	display: table-cell;
+	text-align: center;
+	vertical-align: bottom;
+	font-size: var(--metronome-text-size);
+	font-weight: bold;
+}
+@keyframes b1 {
+  from { background-color: var(--firstbeat_bg); }
+  to   { background-color: transparent; }
+}
+@keyframes b2 {
+  from { background-color: var(--otherbeats_bg); }
+  to   { background-color: transparent; }
+}
+
+/*https://stackoverflow.com/questions/40027799/css-animation-on-content-doesnt-work-on-safari-and-firefox/40083297#40083297*/
+
+/* textmeasure serve a calcolare se il testo deve andare a capo oppure no. Occhio a come lo si tratta! */
+.textmeasure {
+	visibility: hidden;
+
+	/* Impostazioni necessarie al calcolo della lunghezza del testo contenuto */
+	font-size: var(--normal-text-size);
+	overflow:       hidden;
+	white-space:    pre;
+	padding:        5px;
+	width:          var(--renderer-w);
+	max-width:      var(--renderer-w);
+	height:         calc(var(--renderer-h)/6);
+	max-height:     calc(var(--renderer-h)/6);
+	display:        flex; /*causa visualizzazione dello spazio sotto */
+	/* display: none; NO!, altrimenti non ha dimensioni e non si calcola più quando andare a capo */
+
+	/* Lo nascondiamo fuori dallo schermo */
+	position:       absolute;
+	top:            -10000px;
+	left:           -10000px;
+}
+
+#zoom {
+	visibility: hidden;
+	display: none;
+}
+
+.debug    {
+	visibility: hidden;
+	display: none;
+}
+
+@media print {
+	.rendering-target {
+		padding: 0;
+		border: none;
+	}
+}

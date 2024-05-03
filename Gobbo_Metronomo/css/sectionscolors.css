@@ -1,0 +1,46 @@
+:root {
+	--lyric_block-fgcolor:  #FF0F;
+	--lyric_block-bgcolor:  #002;
+
+	--chord-fgcolor:        #08FF;
+	--chord-bgcolor:        #002;
+	--page-fgcolor:         #FF2F;
+	--page-bgcolor:         #002F;
+	--title-fgcolor:        #EEEF;
+	--title-bgcolor:        #069;
+	--subtitle-fgcolor:     #CCCF;
+	--subtitle-bgcolor:     #024;
+	--intro-fgcolor:        #8FFF;
+	--intro-bgcolor:        #330;
+	--verse-fgcolor:        #FF0F;
+	--verse-bgcolor:        #002;
+	--chorus-fgcolor:       #FF0F;
+	--chorus-bgcolor:       #026;
+	--solo-fgcolor:         #F80F;
+	--solo-bgcolor:         #440;
+	--ending-fgcolor:       #08FF;
+	--ending-bgcolor:       #330;
+	--comment-fgcolor:      #888F;
+	--comment-bgcolor:      #222F;
+
+	--bridge-fgcolor:       #FF00;
+	--bridge-bgcolor:       #002;
+	--note-fgcolor:         #FF00;
+	--note-bgcolor:         #002;
+}
+.paginator        {background-color: var(--page-bgcolor)        ;                                     }
+.rendering-target {                                               color: var(--page-fgcolor)        ; }
+.comment          {background-color: var(--comment-bgcolor)     ; color: var(--comment-fgcolor)     ; }
+.lyric_block      {background-color: var(--lyric_block-bgcolor) ; color: var(--lyric_block-fgcolor) ; }
+.subtitle         {background-color: var(--subtitle-bgcolor)    ; color: var(--subtitle-fgcolor)    ; }
+.title            {background-color: var(--title-bgcolor)       ; color: var(--title-fgcolor)       ; }
+.intro            {background-color: var(--intro-bgcolor)       ; color: var(--intro-fgcolor)       ; }
+.verse            {                                               color: var(--verse-fgcolor)       ; }
+.chorus           {background-color: var(--chorus-bgcolor)      ; color: var(--chorus-fgcolor)      ; }
+.chord            {                                               color: var(--chord-fgcolor)       ; }
+.solo             {background-color: var(--solo-bgcolor)        ; color: var(--solo-fgcolor)        ; }
+.ending           {background-color: var(--ending-bgcolor)      ; color: var(--ending-fgcolor)      ; }
+.note             {background-color: var(--note-bgcolor)        ; color: var(--note-fgcolor)        ; }
+p.bridge          {background-color: var(--bridge-bgcolor)      ; color: var(--bridge-fgcolor)      ; }
+
+.container        {background-color: var(--page-bgcolor)        ;                                     }
